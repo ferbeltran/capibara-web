@@ -1,0 +1,111 @@
+/* Capibara: mismos colores y formas que la app. Un solo acento (yuzu), grises cálidos. */
+:root {
+  --bg: #F6F0E7;
+  --surface: #EDE4D6;
+  --card: #FFFBF5;
+  --ink: #2E2621;
+  --ink-soft: #70625A;
+  --accent: #EE9B3B;
+  --on-accent: #3B2216;
+  --wordmark: #8A5A36;
+  --radius: 16px;
+  font-family: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1714;
+    --surface: #332C26;
+    --card: #27221E;
+    --ink: #F4EDE4;
+    --ink-soft: #A39383;
+    --wordmark: #D9A77A;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--wordmark); }
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+/* Barra superior */
+.top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 900; font-size: 22px; color: var(--wordmark); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+.top nav { display: flex; gap: 18px; font-weight: 600; font-size: 15px; }
+.top nav a { color: var(--ink-soft); text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+
+/* Portada */
+.hero {
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center;
+  padding: 40px 0 72px;
+}
+.hero h1 {
+  font-size: clamp(40px, 6vw, 68px); line-height: 1.02; margin: 0 0 18px;
+  font-weight: 900; letter-spacing: -0.035em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { font-size: 20px; color: var(--ink-soft); margin: 0 0 30px; max-width: 30em; }
+.badges { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.badges img { height: 54px; width: auto; }
+.badges small { color: var(--ink-soft); font-size: 14px; }
+.hero .shot { justify-self: center; max-width: 380px; }
+.hero .shot img { border-radius: 28px; }
+
+/* Funciones */
+.features {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  padding-bottom: 72px;
+}
+.feature {
+  background: var(--card); border-radius: var(--radius); padding: 22px;
+}
+.feature h3 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
+.feature p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+/* Galería */
+.gallery {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  padding-bottom: 80px;
+}
+.gallery img { border-radius: 22px; }
+
+/* Páginas de texto */
+.doc { max-width: 720px; margin: 0 auto; padding: 24px 20px 80px; }
+.doc h1 { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; margin: 12px 0 4px; }
+.doc h2 { font-size: 22px; font-weight: 800; margin: 36px 0 8px; }
+.doc .updated { color: var(--ink-soft); margin: 0 0 28px; }
+.doc p, .doc li { font-size: 17px; }
+.doc .card { background: var(--card); border-radius: var(--radius); padding: 4px 22px; margin: 16px 0; }
+.doc hr { border: 0; border-top: 1px solid var(--surface); margin: 56px 0; }
+
+footer {
+  border-top: 1px solid var(--surface);
+  padding: 28px 0 40px; color: var(--ink-soft); font-size: 14px;
+}
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; }
+footer a { color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 16px; }
+  .hero .shot { max-width: 300px; }
+  .features { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .top nav { gap: 14px; font-size: 14px; }
+}
